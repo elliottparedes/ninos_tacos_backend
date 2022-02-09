@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const Event =require('./models/event');
+const Message = require('./models/message')
 
 
 require("dotenv").config();
@@ -40,4 +41,6 @@ app.post("/", (req,res) => {
 })
 
 var eventRoutes = require("./routes/eventRoutes");
+var messageRoutes = require("./routes/messageRoutes")
 app.use(eventRoutes);
+app.use(messageRoutes)
