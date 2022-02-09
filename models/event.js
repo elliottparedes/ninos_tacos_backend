@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const eventSchema = new Schema({
     name:{ 
         type: String,
-        required:true
+        
     },
     email: {
         type: String
