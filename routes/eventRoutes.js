@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Event =require('../models/event');
 var bodyParser = require('body-parser')
 const route = express();
+const mail = require('../mailer')
 
 // create application/json parser
 var jsonParser = bodyParser.json()
@@ -29,6 +30,7 @@ route.post('/addEvent', jsonParser,(req,res) => {
 
     event.save()
         .then((result) => {
+            mail.sendMail(JSON.stringify(event, null, 4), "EVENT REQUESTED")
             res.send(result);
         })
         .catch((err) => 
