@@ -1,0 +1,31 @@
+const Message = require('../models/message');
+
+const messageRepository = {
+    addMessage: async (messageData) => {
+        
+        try {
+            const message =  new Message(messageData);
+            const savedMessage = await message.save();
+            console.info("saved this event" + JSON.stringify(savedMessage));
+            return message;
+        } catch (error) {
+            console.error(error);
+            throw error;
+            
+        }
+
+    },
+
+    getMessageById: async (mesageId) => {
+        try {
+            const message = await Message.findById(messageId);
+            return message;
+          } catch (error) {
+            console.error(error);
+            throw error;
+          }
+    },
+
+}
+
+module.exports = messageRepository;
