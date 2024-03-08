@@ -10,7 +10,7 @@ const eventController = {
         res.status(200).json({eventData});
 
         } catch ( error){
-            console.error('Error creating user: ', error);
+            console.error('Error creating event: ', error);
             res.status(500).json({error:'Internal Server Error'});
         }
       
