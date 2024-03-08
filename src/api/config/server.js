@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const statusCheckRoutes = require('../routes/statusCheckRoutes');
 const eventRoutes = require('../routes/eventRoutes');
 const messageRoutes = require('../routes/messageRoutes');
 const loggerMiddleware = require('../middlewares/loggerMiddleware');
@@ -28,6 +29,7 @@ const serverConnection = {
       // Routes
       app.use(eventRoutes);
       app.use(messageRoutes);
+      app.use(statusCheckRoutes);
 
       // Start the server
       app.listen(process.env.PORT || 3000);
