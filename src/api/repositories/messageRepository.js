@@ -6,7 +6,7 @@ const messageRepository = {
         try {
             const message =  new Message(messageData);
             const savedMessage = await message.save();
-            console.info("saved this event" + JSON.stringify(savedMessage));
+            console.info("Saved this message: \n" + JSON.stringify(savedMessage));
             return message;
         } catch (error) {
             console.error(error);

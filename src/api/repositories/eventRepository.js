@@ -6,7 +6,7 @@ const eventRepository = {
         try {
             const event =  new Event(eventData);
             const savedEvent = await event.save();
-            await console.log("Event Saved: \n" + JSON.stringify(savedEvent));
+            console.log("Event Saved: \n" + JSON.stringify(savedEvent));
             return event;
         } catch (error) {
             throw error;
